@@ -12,7 +12,6 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   //default values
   let statusCode = 500;
   let message = "Something Went Wrong";
-
   let errorSources: TErrorSources = [
     {
       path: "",
@@ -20,6 +19,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     },
   ];
 
+  // Determine the error type and set details
   if (err instanceof ZodError) {
     const simplifiedError = zodErrorHandler(err);
     statusCode = simplifiedError?.statusCode;

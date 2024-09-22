@@ -6,10 +6,12 @@ const TOrderProducts = new Schema<TOrderProducts>({
   product: {
     type: Schema.Types.ObjectId,
     ref: "Product",
+    required: true,
   },
   quantity: {
     type: Number,
     required: true,
+    min: 1,
   },
 });
 
@@ -24,7 +26,7 @@ const orderSchema = new Schema<TOrder>(
       required: true,
     },
     number: {
-      type: String,
+      type: Number,
       required: true,
     },
 

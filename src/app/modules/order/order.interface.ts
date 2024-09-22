@@ -8,9 +8,8 @@ export type TOrderProducts = {
 export type TOrder = {
   name: string;
   email: string;
-  number: string;
+  number: number;
   address: string;
-
   products: [TOrderProducts];
   cashOnDelivery: boolean;
 };

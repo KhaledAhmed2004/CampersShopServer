@@ -1,19 +1,20 @@
 import { z } from "zod";
 
 const TOrderProductsValidationSchema = z.object({
-  product: z.string(),
-  quantity: z.number(),
+  product: z.string().min(1, { message: "Product name is required" }),
+  quantity: z.number().min(1, { message: "Quantity must be at least 1" }),
 });
 
 const createOrderValidation = z.object({
   body: z.object({
-    name: z.string({ required_error: "Name is Required" }),
-    email: z.string({ required_error: "Email is Required" }),
-    number: z.string({ required_error: "Number is Required" }),
-    address: z.string({ required_error: "address is Required" }),
+    name: z.string().min(1, { message: "Name is required" }),
+    email: z.string().email({ message: "Invalid email format" }),
+    number: z.number().min(1, { message: "Phone number is required" }),
+    address: z.string().min(1, { message: "Address is required" }),
+    products: z
+      .array(TOrderProductsValidationSchema)
+      .min(1, { message: "At least one product is required" }),
     cashOnDelivery: z.boolean(),
-
-    products: z.array(TOrderProductsValidationSchema),
   }),
 });
 

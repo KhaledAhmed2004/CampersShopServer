@@ -1,23 +1,20 @@
 import express, { Application, Request, Response, application } from "express";
 import cors from "cors";
 import router from "./app/routes";
-import notFoundRoute from "./app/middlewares/notFoundRoute";
+import notFound from "./app/middlewares/notFoundRoute";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 
 const app: Application = express();
 
-//parser
 app.use(express.json());
 app.use(cors());
-
-//application routes
 
 app.use("/api", router);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome to Campers Shop Shop Server");
+  res.send("CampeTime Server running...");
 });
 
 app.use(globalErrorHandler);
-app.use(notFoundRoute);
+app.use(notFound);
 export default app;

@@ -16,7 +16,6 @@ const productSchema = new Schema<TProduct>(
       type: Number,
       required: true,
     },
-
     description: {
       type: String,
       required: true,
@@ -31,10 +30,7 @@ const productSchema = new Schema<TProduct>(
     },
     ratings: {
       type: Number,
-    },
-    isFeatured: {
-      type: Boolean,
-      default: false,
+      required: true,
     },
   },
   {

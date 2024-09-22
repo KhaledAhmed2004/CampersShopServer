@@ -6,7 +6,6 @@ export type TProduct = {
   category: string;
   image: string;
   ratings: number;
-  isFeatured?: boolean;
 };
 
 export type TProductQuery = {

@@ -26,7 +26,7 @@ const orderSchema = new Schema<TOrder>(
       required: true,
     },
     number: {
-      type: Number,
+      type: String,
       required: true,
     },
 

@@ -8,8 +8,8 @@ const TOrderProductsValidationSchema = z.object({
 const createOrderValidation = z.object({
   body: z.object({
     name: z.string().min(1, { message: "Name is required" }),
-    email: z.string().email({ message: "Invalid email format" }),
-    number: z.number().min(1, { message: "Phone number is required" }),
+    email: z.string().min(1, { message: "Invalid email format" }),
+    number: z.string().min(1, { message: "Phone number is required" }),
     address: z.string().min(1, { message: "Address is required" }),
     products: z
       .array(TOrderProductsValidationSchema)
